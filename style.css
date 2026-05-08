@@ -254,11 +254,17 @@ a { text-decoration: none; color: inherit; }
 
 /* --- ADAPTACIÓN MÓVIL UNIFICADA (Celulares Android e iOS) --- */
 @media (max-width: 900px) {
-    /* Reducimos el padding de 40px a 20px para que el texto tenga aire y no toque los bordes */
+    
+    /* 1. Centramos el título del menú en celulares */
+    .logo h1 {
+        text-align: center;
+    }
+
+    /* 2. Le sacamos el "!important" para que las fotos principales puedan tocar los bordes */
     .hero-container, 
     .card {
         flex-direction: column;
-        padding: 30px 20px !important; 
+        padding: 30px 20px; 
     }
 
     .hero-text h2 {
@@ -282,20 +288,14 @@ a { text-decoration: none; color: inherit; }
     .main-nav { flex-direction: column; gap: 20px; padding: 20px; }
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
     
-    /* 3D: Al achicar el padding a 20px, estos márgenes negativos de -20px hacen que el modelo toque los bordes exactos y vuelva la simetría */
+    /* 3. Le sacamos los márgenes negativos al 3D para que no se desborde del recuadro blanco */
     .contenedor-3d {
         height: 65vh; 
         min-height: 450px;
-        width: calc(100% + 40px); 
-        margin-left: -20px;
-        margin-right: -20px;
         border-radius: 12px; 
     }
 
     .galeria-3d {
-        width: calc(100% + 40px); 
-        margin-left: -20px;
-        margin-right: -20px;
         gap: 15px; 
     }
 }
