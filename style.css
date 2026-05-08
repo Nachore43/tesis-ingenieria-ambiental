@@ -298,6 +298,11 @@ a { text-decoration: none; color: inherit; }
     .galeria-3d {
         gap: 15px; 
     }
+
+    /* 4. Forzamos que los textos de la izquierda se centren SOLO en celulares */
+    div[style*="text-align: left"] {
+        text-align: center !important;
+    }
 }
 
 /* --- TAMAÑO DINÁMICO PARA MODELOS 3D --- */
