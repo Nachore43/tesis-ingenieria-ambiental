@@ -252,23 +252,19 @@ a { text-decoration: none; color: inherit; }
     }
 }
 
-/* ADAPTACIÓN MÓVIL (Celulares) */
+/* --- ADAPTACIÓN MÓVIL UNIFICADA (Celulares Android e iOS) --- */
 @media (max-width: 900px) {
-    .hero-container {
+    /* Reducimos el padding de 40px a 20px para que el texto tenga aire y no toque los bordes */
+    .hero-container, 
+    .card {
         flex-direction: column;
-        padding: 30px;
+        padding: 30px 20px !important; 
     }
 
-    /* Achicamos el título en celulares y PROHIBIMOS que corte palabras */
     .hero-text h2 {
-        font-size: 1.4rem; /* Letra un poco más chica para que entre HIDROSIEMBRA */
-        hyphens: none; /* Le prohibimos usar guiones */
-        word-break: normal; /* Si la palabra no entra, que baje entera al otro renglón */
-    }
-
-    /* Le damos un poco más de espacio a los costados en el celu */
-    .hero-container {
-        padding: 20px; 
+        font-size: 1.4rem; 
+        hyphens: none; 
+        word-break: normal; 
     }
     
     .hero-image-box {
@@ -279,24 +275,28 @@ a { text-decoration: none; color: inherit; }
 
     .pop-out-image {
         width: 100%;
-        max-width: 400px; /* Un tamaño ideal para que no sature la pantalla del celu */
-        margin: 0 auto; /* Esto asegura que quede bien centrado */
+        max-width: 400px; 
+        margin: 0 auto; 
     }
 
-    .main-nav { 
-        flex-direction: column; 
-        gap: 20px; 
-        padding: 20px; 
-    }
+    .main-nav { flex-direction: column; gap: 20px; padding: 20px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
     
-    .nav-links { 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 20px; 
+    /* 3D: Al achicar el padding a 20px, estos márgenes negativos de -20px hacen que el modelo toque los bordes exactos y vuelva la simetría */
+    .contenedor-3d {
+        height: 65vh; 
+        min-height: 450px;
+        width: calc(100% + 40px); 
+        margin-left: -20px;
+        margin-right: -20px;
+        border-radius: 12px; 
     }
-    
-    .sketchfab-embed-wrapper { 
-        height: 350px; 
+
+    .galeria-3d {
+        width: calc(100% + 40px); 
+        margin-left: -20px;
+        margin-right: -20px;
+        gap: 15px; 
     }
 }
 
@@ -309,19 +309,6 @@ a { text-decoration: none; color: inherit; }
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     /* MAGIA 1: El '30px' despega el modelo del texto de arriba */
     margin: 30px auto 0 auto; 
-}
-
-/* Adaptación para Celulares */
-@media (max-width: 900px) {
-    .contenedor-3d {
-        height: 65vh; 
-        min-height: 450px;
-        /* MAGIA 2: Ensanchamos el modelo "comiéndonos" 20px de cada lado de la caja blanca */
-        width: calc(100% + 40px); 
-        margin-left: -20px;
-        margin-right: -20px;
-        border-radius: 12px; /* Acomodamos los bordes para que sigan viéndose prolijos */
-    }
 }
 
 /* --- FIX: ELIMINAR ESPACIO EXTRA DEBAJO DEL FOOTER --- */
@@ -340,16 +327,6 @@ html, body {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 15px;
-}
-
-/* Adaptación para Celulares: Rompemos los márgenes de la caja blanca */
-@media (max-width: 900px) {
-    .galeria-3d {
-        width: calc(100% + 40px); 
-        margin-left: -20px;
-        margin-right: -20px;
-        gap: 15px; /* Achicamos apenitas el espacio entre los dos modelos */
-    }
 }
 
 /* --- GALERÍA CRONOLÓGICA (EFECTO PASAR HOJA) --- */
